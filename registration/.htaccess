@@ -1,0 +1,24 @@
+Options +FollowSymLinks -MultiViews
+RewriteEngine On
+
+RewriteBase /payroll/registration/
+
+# Remove .php extension with and without trailing slash
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^(.*?)/?$ $1.php [L,QSA]
+
+RewriteCond %{QUERY_STRING} (.*)/$
+RewriteRule ^(.*)$ /$1?%1 [L,R=301]
+
+RewriteRule ^reports/(.*)/ report.php?emp=$1
+RewriteRule ^reports/(.*) report.php?emp=$1
+
+RewriteRule ^new/(.*)/ newreg.php
+RewriteRule ^new/(.*) newreg.php
+
+IndexIgnore *
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ 404.php [L]
