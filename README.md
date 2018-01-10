@@ -1,2 +1,2 @@
-# payroll
-Payroll is an application by which you can manage your company's employee records, salary details and leave applications very easily.
+# Payroll
+Payroll is an application to maintain your company's employee records, salary details and leave applications without any hassle.
